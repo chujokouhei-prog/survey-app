@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>アンケート集計</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-page="dashboard">
+    <header class="site-header">
+        <h1>社内アンケート</h1>
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="form.html">回答する</a>
+            <a href="dashboard.html" class="active">集計を見る</a>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="card">
+            <h2>概要</h2>
+            <div class="metrics">
+                <div class="metric">
+                    <span class="metric-label">総件数</span>
+                    <span id="total-count" class="metric-value">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">平均優先度</span>
+                    <span id="average-priority" class="metric-value">0.0</span>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <h2>部署別件数</h2>
+            <canvas id="department-chart" width="400" height="260" aria-hidden="true"></canvas>
+            <div id="department-table-wrapper" class="hidden" aria-live="polite">
+                <table id="department-table">
+                    <thead>
+                        <tr>
+                            <th>部署</th>
+                            <th>件数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- データ挿入 -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="card">
+            <h2>直近5件</h2>
+            <div id="recent-list" class="list-empty">データがありません。</div>
+        </section>
+        <section class="card actions">
+            <button id="download-csv" class="button">CSVダウンロード</button>
+            <button id="reset-data" class="button danger">全データをリセット</button>
+        </section>
+    </main>
+    <script src="assets/app.js"></script>
+</body>
+</html>

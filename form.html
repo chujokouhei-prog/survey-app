@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>アンケートに回答する</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="form">
+    <header class="site-header">
+        <h1>社内アンケート</h1>
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="form.html" class="active">回答する</a>
+            <a href="dashboard.html">集計を見る</a>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="card">
+            <h2>アンケートフォーム</h2>
+            <p>日々の業務で困ったことがあれば教えてください。</p>
+            <div id="form-message" role="alert" aria-live="polite"></div>
+            <form id="survey-form" novalidate>
+                <div class="form-group">
+                    <label for="department">部署 <span class="required">*</span></label>
+                    <select id="department" name="department" required>
+                        <option value="">選択してください</option>
+                        <option value="営業">営業</option>
+                        <option value="事務">事務</option>
+                        <option value="システム">システム</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="role">役職</label>
+                    <input type="text" id="role" name="role" placeholder="例：主任" maxlength="100">
+                </div>
+                <div class="form-group">
+                    <label for="issue">今日の困りごと <span class="required">*</span></label>
+                    <textarea id="issue" name="issue" rows="4" maxlength="200" required placeholder="200文字以内で入力してください"></textarea>
+                    <small class="help-text">200文字以内で入力してください。</small>
+                </div>
+                <div class="form-group">
+                    <label for="priority">優先度 (1-5) <span class="required">*</span></label>
+                    <input type="number" id="priority" name="priority" min="1" max="5" required>
+                </div>
+                <div class="form-group checkbox">
+                    <label>
+                        <input type="checkbox" id="contact" name="contact">
+                        連絡希望
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="button primary">送信する</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="assets/app.js"></script>
+</body>
+</html>
